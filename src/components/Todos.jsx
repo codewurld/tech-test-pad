@@ -5,7 +5,7 @@ import AddTodo from "./AddTodo";
 const Todos = ({ todo }) => {
 
     // sets initial state for to do value
-    const [addTodoValue, setAddTodoValue] = useState("");
+
     const [todos, setTodos] = useState([])
 
     // gets current time
@@ -38,7 +38,8 @@ const Todos = ({ todo }) => {
     }
 
     // gets value from user input with time of input as id
-    const addNewTodo = value => {
+    const addNewTodo = (value) => {
+        console.log(value);
         if (value) {
             const todosCopy = [...todos];
             todosCopy.push(
@@ -49,7 +50,7 @@ const Todos = ({ todo }) => {
                 }
             );
 
-            setAddTodoValue(todosCopy)
+            setTodos(todosCopy)
         } else {
             console.log("Please Add Todo Text");
         }
@@ -68,7 +69,7 @@ const Todos = ({ todo }) => {
                     ))}
                     <tr>
                         <td colSpan="4" className="text-center">
-                            <AddTodo fooAddTodo={addNewTodo} addTodoValue={addTodoValue} />
+                            <AddTodo addNewTodo={addNewTodo} />
                         </td>
                     </tr>
                 </tbody>

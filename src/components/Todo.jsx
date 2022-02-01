@@ -2,6 +2,7 @@
 // props passed from Todos component
 const Todo = ({ index, todo, fooDoneDone, fooDelete, isDone }) => {
 
+    // render if to do is false as per state
     const renderTodo = () => {
         if (todo.isDone) {
             return <s>{todo.value}</s>;
@@ -21,7 +22,7 @@ const Todo = ({ index, todo, fooDoneDone, fooDelete, isDone }) => {
             </td>
             <td>
                 {
-                    renderTodo
+                    renderTodo()
                 }
             </td>
             <td style={{ width: 100 }} className="text-center">

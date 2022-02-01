@@ -2,11 +2,11 @@ import { useState } from "react";
 
 
 // props passed from Todos component
-const AddTodo = ({ addTodoValue, fooAddTodo }) => {
+const AddTodo = ({ addNewTodo, }) => {
 
 
-    const [defaultValue, setDefaultValue] = useState("")
-    const [value, setValue] = useState(addTodoValue)
+
+    const [value, setValue] = useState("")
 
     // get input value from form
     const handleChange = (e) => {
@@ -17,7 +17,6 @@ const AddTodo = ({ addTodoValue, fooAddTodo }) => {
 
     // returns empty string
     const clearInput = () => {
-        document.getElementById("todoValue").value = "";
 
         setValue("");
     }
@@ -25,7 +24,7 @@ const AddTodo = ({ addTodoValue, fooAddTodo }) => {
 
     const addTodo = () => {
 
-        setValue(fooAddTodo);
+        addNewTodo(value);
 
         clearInput();
     }
@@ -33,7 +32,9 @@ const AddTodo = ({ addTodoValue, fooAddTodo }) => {
     return (
         <div className="input-group mb-3">
             {/* gets input value on change */}
-            <input type="text" className="form-control" id="todoValue" placeholder="ToDo" onChange={handleChange} />
+            <input type="text" className="form-control" id="todoValue"
+                value={value}
+                placeholder="ToDo" onChange={handleChange} />
             <div className="input-group-append">
                 <button onClick={addTodo} className="btn btn-outline-secondary" type="button" id="button-addon2">Add New ToDo</button>
             </div>
