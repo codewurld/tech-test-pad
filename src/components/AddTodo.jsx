@@ -2,9 +2,7 @@ import { useState } from "react";
 
 
 // props passed from Todos component
-const AddTodo = ({ addNewTodo, }) => {
-
-
+const AddTodo = ({ addNewTodo }) => {
 
     const [value, setValue] = useState("")
 
@@ -21,7 +19,7 @@ const AddTodo = ({ addNewTodo, }) => {
         setValue("");
     }
 
-
+    // add new to do value, then clear form
     const addTodo = () => {
 
         addNewTodo(value);
@@ -36,7 +34,7 @@ const AddTodo = ({ addNewTodo, }) => {
                 value={value}
                 placeholder="ToDo" onChange={handleChange} />
             <div className="input-group-append">
-                <button onClick={addTodo} className="btn btn-outline-secondary" type="button" id="button-addon2">Add New ToDo</button>
+                <button onClick={addTodo} className="btn btn-outline-secondary" type="button" id="button-addon2" title="submitButton">Add New ToDo</button>
             </div>
         </div>
     );
